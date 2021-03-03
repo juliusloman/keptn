@@ -1,0 +1,57 @@
+spec_version: ""
+filter: {}
+comparison:
+  compare_with: single_result
+  include_result_with_score: pass
+  number_of_comparison_results: 1
+  aggregate_function: avg
+objectives:
+- sli: proc_count
+  pass: []
+  warning: []
+  weight: 1
+  key_sli: false
+- sli: process_memory
+  pass: []
+  warning: []
+  weight: 1
+  key_sli: false
+- sli: process_cpu
+  pass:
+  - criteria:
+    - <20
+  warning:
+  - criteria:
+    - <50
+  weight: 1
+  key_sli: false
+- sli: host_cpu
+  pass:
+  - criteria:
+    - <20
+  warning:
+  - criteria:
+    - <50
+  weight: 1
+  key_sli: false
+- sli: host_mem
+  pass:
+  - criteria:
+    - <20
+  warning:
+  - criteria:
+    - <50
+  weight: 1
+  key_sli: false
+- sli: host_disk_queue
+  pass:
+  - criteria:
+    - <=0
+  warning:
+  - criteria:
+    - <1
+  weight: 1
+  key_sli: false
+total_score:
+  pass: 90%
+  warning: 70%
